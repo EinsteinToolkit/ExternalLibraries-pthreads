@@ -74,9 +74,10 @@ if [ -z "${PTHREADS_DIR}" ]; then
     done
     
     if [ -z "$PTHREADS_DIR" ]; then
-        echo "BEGIN MESSAGE"
+        echo "BEGIN ERROR"
         echo "Did not find PTHREADS"
-        echo "END MESSAGE"
+        echo "END ERROR"
+        exit 1
     else
         echo "BEGIN MESSAGE"
         echo "Found PTHREADS in ${PTHREADS_DIR}"
