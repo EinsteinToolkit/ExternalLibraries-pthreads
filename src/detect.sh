@@ -91,11 +91,14 @@ fi
 # Configure Cactus
 ################################################################################
 
-# PTHREADS_LIBS and PTHREADS_DIR are already, set remaining uset options based on them
+# PTHREADS_LIBS and PTHREADS_DIR are already set; set remaining unset
+# options based on these
 if [ "x$PTHREADS_DIR" != xNO_BUILD ] ; then
-    : ${PTHREADS_INC_DIRS="$(${CCTK_HOME}/lib/sbin/strip-incdirs.sh ${PTHREADS_DIR}/include)"}
-    : ${PTHREADS_LIB_DIRS="$(${CCTK_HOME}/lib/sbin/strip-incdirs.sh ${PTHREADS_DIR}/lib)"}
+    : ${PTHREADS_INC_DIRS="${PTHREADS_DIR}/include"}
+    : ${PTHREADS_LIB_DIRS="${PTHREADS_DIR}/lib"}
 fi
+PTHREADS_INC_DIRS=$(${CCTK_HOME}/lib/sbin/strip-incdirs.sh ${PTHREADS_INC_DIRS})
+PTHREADS_LIB_DIRS=$(${CCTK_HOME}/lib/sbin/strip-libdirs.sh ${PTHREADS_LIB_DIRS})
 
 # Pass options to Cactus
 echo "BEGIN DEFINE"
