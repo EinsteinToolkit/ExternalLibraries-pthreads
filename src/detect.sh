@@ -45,7 +45,7 @@ if [ -z "${PTHREADS_DIR}" ]; then
         # libraries might have different file extensions
         for libext in a so dylib; do
             # libraries can be in /lib or /lib64
-            for libdir in lib64 lib lib/x86_64-linux-gnu; do
+            for libdir in lib64 lib lib/x86_64-linux-gnu lib/i386-linux-gnu lib/arm-linux-gnueabihf; do
                 # These files must exist
                 FILES="include/pthread.h $(for lib in ${PTHREADS_LIBS}; do echo ${libdir}/lib${lib}.${libext}; done)"
                 # assume this is the one and check all needed files
