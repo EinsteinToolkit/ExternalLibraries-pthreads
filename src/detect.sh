@@ -39,7 +39,7 @@ if [ -z "${PTHREADS_DIR}" ]; then
     echo "END MESSAGE"
     
     # We look in these directories
-    DIRS="/usr /usr/local /opt/local ${HOME} c:/packages/PTHREADS"
+    DIRS="/usr /usr/local /opt/local /opt/homebrew ${HOME} c:/packages/PTHREADS"
     # look into each directory
     for dir in $DIRS; do
         # libraries might have different file extensions
